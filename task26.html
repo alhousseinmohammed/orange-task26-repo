@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="task26.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="bar"></div>
+      <div class="button">1</div>
+      <div class="button">2</div>
+      <div class="button">3</div>
+      <div class="sum">+</div>
+      <div class="button">4</div>
+      <div class="button">5</div>
+      <div class="button">6</div>
+      <div class="sub">-</div>
+      <div class="button">7</div>
+      <div class="button">8</div>
+      <div class="button">9</div>
+      <div class="mul">*</div>
+      <div class="ceaser">C</div>
+      <div class="button">0</div>
+      <div class="equal">=</div>
+      <div class="div">/</div>
+    </div>
+    <script>
+      var bar = document.getElementsByClassName("bar")[0];
+      var holder = "";
+      var calculation = "";
+      function clear() {
+        bar.innerHTML = "";
+      }
+      button = document.getElementsByClassName("button");
+      for (let i in button) {
+        button[i].onclick = () => {
+          bar.innerHTML += button[i].innerHTML;
+        };
+      }
+      let sum = document.getElementsByClassName("sum")[0];
+      sum.onclick = () => {
+        holder = bar.innerHTML;
+        bar.innerHTML = "";
+        calculation = "+";
+      };
+      let sub = document.getElementsByClassName("sub")[0];
+      sub.onclick = () => {
+        holder = bar.innerHTML;
+        bar.innerHTML = "";
+        calculation = "-";
+      };
+      let mul = document.getElementsByClassName("mul")[0];
+      mul.onclick = () => {
+        holder = bar.innerHTML;
+        bar.innerHTML = "";
+        calculation = "*";
+      };
+      let div = document.getElementsByClassName("div")[0];
+      div.onclick = () => {
+        holder = bar.innerHTML;
+        bar.innerHTML = "";
+        calculation = "/";
+      };
+      let equal = document.getElementsByClassName("equal")[0];
+      // var
+      equal.onclick = () => {
+        switch (calculation) {
+          case "+":
+            bar.innerHTML = Number(holder) + Number(bar.innerHTML);
+            break;
+          case "-":
+            bar.innerHTML = Number(holder) - Number(bar.innerHTML);
+            break;
+          case "*":
+            bar.innerHTML = Number(holder) * Number(bar.innerHTML);
+            break;
+          case "/":
+            bar.innerHTML = Number(holder) / Number(bar.innerHTML);
+        }
+        holder = "";
+        calculation = "";
+      };
+      let ceaser = document.getElementsByClassName("ceaser")[0];
+      ceaser.onclick = () => {
+        bar.innerHTML = "";
+        holder = "";
+        calculation = "";
+      };
+    </script>
+  </body>
+</html>

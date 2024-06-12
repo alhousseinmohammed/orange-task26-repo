@@ -1,0 +1,23 @@
+.top {
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: green;
+}
+
+.element {
+  width: 30%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.element :first-child img{
+  width: 100%;
+  object-fit:cover;
+}
+
+.element > div {
+  background-color: blue;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
